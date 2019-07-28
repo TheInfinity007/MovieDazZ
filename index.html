@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MovieDazZ</title>
+	<meta name="viewport" content = "width = 	device-width" initial-scale = 1>
+	
+  	<link rel="stylesheet" href="css/bootstrap.min.css" >
+  	<script src = "library/jquery-3.3.1.min.js"></script>
+  	<!--<script src ="js/bootstrap.js"></script>		-->
+
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  	<script src = "js/jquery_myScript.js"></script>
+  	<link  rel = "stylesheet" type = "text/css" href = "css/style.css">
+</head>
+<body>
+	<a name = "top_header"></a>
+<div class = "container-fluid">
+	<div class = "top_header">
+		<h2>Movie DazZ</h2>
+		<h5>The Best movie review site</h5>
+	</div>
+
+
+	<!-- navigation start -->
+	<nav class = "navbar navbar-inverse" data-spy = "affix" data-offset-top = "80">
+		<div class = "container-fluid">
+			<div class = "navbar-header">
+				<ul class = "nav navbar-nav">
+					<li><a href = "#" class = "navbar-brand"><img src = "res/icon/logo.png"></a></li>
+				</ul>
+				<button type = "button" class = "navbar-toggle" data-toggle = "collapse" data-target = "#myNavbar">
+					<span class = 	"icon-bar"></span>
+					<span class = "icon-bar"></span>
+					<span class = "icon-bar"></span>
+				</button>
+			</div>
+
+			<div class = "collapse navbar-collapse" id = "myNavbar">
+				<ul class = "nav navbar-nav">
+					<li class = "active"><a href = "#">Home</a></li>
+					<li><a href = "html/trailer.html">Trailer</a></li>
+					<li><a href = "html/celebrity.html">Celebrity</a></li>
+					<li><a href = "html/latest_movies.html">Latest</a></li>
+					<li><a href = "html/evergreen_movies.html">Evergreen</a></li>
+				</ul>
+				<ul class = "nav navbar-nav navbar-right">
+					<li><a href = "html/signUp.html"><spna class = "glyphicon glyphicon-user"></spna>&nbsp SignUp</a></li>
+					<li><a href = "html/signIn.html"><span class = "glyphicon glyphicon-log-in"></span>  &nbspLogin</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- navigation part end -->
+	<!-- Carousel Start -->
+	<div id = "myCarousel" class = "carousel slide" data-ride = "carousel" data-interval = "2000">
+		<ol class = "carousel-indicators">
+			<li data-target = "#myCarousel" data-slide-to = "0" class = "active"></li>
+			<li data-target = "#myCarousel" data-slide-to = "1"></li>
+			<li data-target = "#myCarousel" data-slide-to = "2"></li>
+			<li data-target = "#myCarousel" data-slide-to = "3"></li>
+			<li data-target = "#myCarousel" data-slide-to = "4"></li>
+		</ol>
+		<div class = "carousel-inner">	
+			<div class = "item active">
+					<iframe src="https://www.youtube.com/embed/MyCuUr2_hmA" class = "" alt = "The wall" allowfullscreen controls = "" frameborder = ""></iframe>
+					<div class = "carousel-caption">
+						<h3>The Wall</h3>
+					</div>
+			</div>
+			<div class = "item">
+					<iframe src="https://www.youtube.com/embed/TcMBFSGVi1c" class = ""frameborder = "0"></iframe>
+					<div class = "carousel-caption">
+						<h3>Avengers : The End Game</h3>
+					</div>
+			</div>
+			<div class = "item">	
+					<iframe src="https://www.youtube.com/embed/1roy4o4tqQM" class = ""frameborder = ""></iframe>
+					<div class = "carousel-caption">
+						<h3>Detective Pikachu</h3>
+					</div>
+			</div>
+			<div class = "item">	
+					<iframe src="https://www.youtube.com/embed/g4Hbz2jLxvQ" class = ""frameborder = ""></iframe>
+					<div class = "carousel-caption">
+						<h3>Spiderman : Into the spider-verse</h3>
+					</div>
+			</div>
+			<div class = "item">	
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" class = ""frameborder = ""></iframe>
+					<div class = "carousel-caption">
+						<h3>Johnwick Chapter 3</h3>
+					</div>
+			</div>
+		</div>
+
+		<a class = "left carousel-control" href = "#myCarousel" data-slide = "prev">
+			<span class = "glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a class = "right carousel-control" href = "#myCarousel" data-slide = "next">
+			<span class = "glyphicon glyphicon-chevron-right"></span>
+		</a>
+	</div>
+	<!-- Carousel ends -->
+	<!-- trailer start -->
+
+	<div class = "main_body container-fluid">
+		<div class = "trailer_container row">
+			<div class = "trailer_header">
+				<h1>Trailers</h1>
+			</div>
+			<div class = "trailer_content">
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/MyCuUr2_hmA" alt = "The wall" allowfullscreen controls = "" frameborder = ""></iframe>
+					<div class = "caption">
+						The Wall
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/TcMBFSGVi1c" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Avengers : The End Game
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/1roy4o4tqQM" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Detective Pikachu
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/q5v7Ch4bxzc" alt = "The wall" allowfullscreen controls = "" frameborder = ""></iframe>
+					<div class = "caption">
+						SpiderMan  : Into the spider-verse
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/g4Hbz2jLxvQ" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- trailer ends -->
+		<!-- latest_movies start -->
+		<div class = "latest_movies_container">
+			<div class="latest_movies_header">
+				<h1>Latest Movies</h1>
+			</div>
+			<div class="latest_movies_content">
+				<div class="latest_movies">
+					<div>
+						<a href = "html/latest/bum.html" target = "_blank">
+							<img class = "photo" src = "res/img/bum.jpg">
+							<div class = "caption">
+								Bumblebee
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="latest_movies">
+					<div>
+						<a href = "html/latest/aqua.html" target = "_blank">
+							<img class = "photo" src = "res/img/aqua.jpg">
+							<div class = "caption">
+								Aquaman
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="latest_movies">
+					<div>
+						<a href = "html/latest/aqua.html" target = "_blank">
+							<img class = "photo" src = "res/img/vice.jpg">						
+							<div class = "caption">
+								Vice
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="latest_movies">
+					<div>
+						<a href = "html/latest/fantastic.html" target = "_blank">
+							<img class = "photo" src = "res/img/fantastic.png">
+							<div class = "caption">
+								Fantastic Beast
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="latest_movies">
+					<div>
+						<a href = "html/latest/front.html" target = "_blank">
+							<img class = "photo" src = "res/img/front.jpg">
+							<div class = "caption">
+								The Front Runner
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="latest_movies">
+					<div>
+						<a href = "html/latest/first.html" target = "_blank">
+							<img class = "photo" src = "res/img/first.png">
+							<div class = "caption">
+								First
+							</div>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- latest_movies end -->
+		<!-- celebrities start -->
+		<div class = "celeb_container">
+			<div class="celeb_header">
+				<h1>Popular Celebrities</h1>
+			</div>
+			<div class = "celeb_content">
+				<div class="card">
+					<div class="layer"></div>
+					<div class="content">
+						<p>Jennifer Shrader Lawrence's films have grossed over $5.7 billion worldwide, and she was the highest-paid actress in the world in 2015 and 2016. She appeared in Time's 100 most influential people in the world list in 2013. She starred in  <a href="#">X-Men</a> (2014), <a href="#">Red Sparrow</a> (2018).
+						</p>
+						<div class="image">
+							<img src="res/img/celebs/Jennifer_Lawrence.jpg">
+						</div>
+						<div class="details">
+							<h2>Jennifer Lawrence</h2><br><span>Actress | <a href="#">Dark Phoenix</a></span>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="layer"></div>
+					<div class="content">
+						<p>Thomas Cruise Mapother IV is an American actor and producer. He started his career at age 19 in the film Endless Love, before receiving widespread attention for starring in the action drama Top Gun as Lieutenant Pete "Maverick" Mitchell. He is known for <a hrer="#">Terminator</a> (1991), <a href="#">The Mummy</a> (2017) and <a href="#">The Expandables</a> (2014).
+						</p>
+						<div class="image">
+							<img src="res/img/celebs/Tom_Cruise.jpg">
+						</div>
+						<div class="details">
+							<h2>Tom Cruise</h2><br><span>Actor, Producer | <a href="#">Mission: Impossible - Fallout</a></span>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="layer"></div>
+					<div class="content">
+						<p>Elizabeth Chase Olsen was born in Feb 16, 1989. Her breakthrough came in 2011 when she starred in the independent thriller drama Martha Marcy May Marlene, for which she was nominated for the <a>Critics' Choice Movie Award</a> for Best Actress. She known for <a hrer="#">Godzilla</a> (2014), <a href="#">Oldboy</a> (2013) and <a href="#">Wind River</a> (2017).
+						</p>
+						<div class="image">
+							<img src="res/img/celebs/Elizabeth_Olsen.jpg">
+						</div>
+						<div class="details">
+							<h2>Elizabeth Olsen</h2><br><span>Actress | <a href="#">Avengers: Infinity War</a></span>
+						</div>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="layer"></div>
+					<div class="content">
+						<p>Robert John Downey Jr was born in Apr 4, 1965. His career has included critical and popular success in his youth, followed by a period of substance abuse and legal difficulties, and a resurgence of commercial success in middle age. She starred in  <a href="#">Avengers: Infinity War</a> (2018), <a href="#">Sherlock Holmes</a> (2009) and <a href="#">Tropic Thunder</a> (2008).
+						</p>
+						<div class="image">
+							<img src="res/img/celebs/Robert_Downey_jr.jpg">
+						</div>
+						<div class="details">
+							<h2>Robert Downey Jr</h2><br><span>Actor, Singer | <a href="#">Iron Man (sequel)</a></span>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="layer"></div>
+					<div class="content">
+						<p>Adele Laurie Blue Adkins MBE is an English singer and songwriter. After graduating in 2006, Adele was given a recording contract by XL Recordings after a friend posted her demo on Myspace. She is known for <a href="#">Hello</a>(2015), <a href="#">Rolling in the Deep</a>(2011).
+						</p>
+						<div class="image">
+							<img src="res/img/celebs/Adele.jpg">
+						</div>
+						<div class="details">
+							<h2>Adele</h2><br><span>Singer | <a href="#">Someone Like You</a></span>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="layer"></div>
+					<div class="content">
+						<p>Angelina Jolie was born in June 4, 1975. She made her screen debut as a child alongside her father, Jon Voight, in Lookin' to Get Out. She has been cited as Hollywood's highest-paid actress. She known for <a hrer="#">Mr. & Mrs. Smith</a> (2005), <a href="#">By the Sea</a> (2015) and <a href="#">Maleficent</a> (2014).
+						</p>
+						<div class="image">
+							<img src="res/img/celebs/Angelina_Jolie.jpeg">
+						</div>
+						<div class="details">
+							<h2>Angelina Jolie</h2><br><span>Actress, Humanitarian | <a href="#">Lara Croft:Tomb Raider</a></span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!--  celebrity ends>-->
+		<!-- evergreen_movies start -->
+		<div class = "eg_movies_container">
+			<div class="eg_movies_header">
+				<h1>Evergreen Movies</h1>
+			</div>
+			<div class="eg_movies_content">
+				<div class="eg_movies">
+					<div>
+						<a href = "html/latest/casino.html" target = "_blank">
+							<img class = "photo" src = "res/img/casino.jpg">
+							<div class = "caption">
+								Casino Royal
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="eg_movies">
+					<div>
+						<a href = "html/latest/club.html" target = "_blank">
+							<img class = "photo" src = "res/img/club.jpg" alt = "Fight Club">
+							<div class = "caption">
+								Fight Club
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="eg_movies">
+					<div>
+						<a href = "html/latest/smith.html" target = "_blank">
+							<img class = "photo" src = "res/img/smith.jpg" alt = "Mr. & Mrs. Smith">
+							<div class = "caption">
+								Mr. & Mrs. Smith
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="eg_movies">
+					<div>
+						<a href = "html/latest/forrest.html" target = "_blank">
+							<img class = "photo" src = "res/img/forrest.jpg" alt = "Forrest Grump">
+							<div class = "caption">
+								Forrest Grump
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="eg_movies">
+					<div>
+						<a href = "html/latest/titanic.html" target = "_blank">
+							<img class = "photo" src = "res/img/titanic.jpg" alt = "Titanic">
+							<div class = "caption">
+								Titanic
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="eg_movies">
+					<div>
+						<a href = "html/latest/godfather.html" target = "_blank">
+							<img class = "photo" src = "res/img/godfather.jpg" alt = "The GodFather">
+							<div class = "caption">
+								The GodFather
+							</div>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- evergreen_movies end -->
+		<a id = "go_to_top" class = "btn btn-info" href = "#top_header"><span class = "glyphicon glyphicon-chevron-up"></span></a>
+
+
+
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MovieDazZ</title>
+	<meta name="viewport" content = "width = 	device-width" initial-scale = 1>
+	
+  	<link rel="stylesheet" href="../css/bootstrap.min.css" >
+  	<script src = "../library/jquery-3.3.1.min.js"></script>
+  	<!--<script src ="js/bootstrap.js"></script>		-->
+
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  	<link  rel = "stylesheet" type = "text/css" href = "../css/trailer.css">
+</head>
+<body>
+	<a name = "top_header"></a>
+<div class = "container-fluid">
+	<div class = "top_header">
+		<h2>Movie DazZ</h2>
+		<h5>The Best movie review site</h5>
+	</div>
+
+
+	<!-- navigation start -->
+	<nav class = "navbar navbar-inverse" data-spy = "affix" data-offset-top = "80">
+		<div class = "container-fluid">
+			<div class = "navbar-header">
+				<ul class = "nav navbar-nav">
+					<li><a href = "../index.html" class = "navbar-brand"><img src = "../res/icon/logo.png"></a></li>
+				</ul>
+				<button type = "button" class = "navbar-toggle" data-toggle = "collapse" data-target = "#myNavbar">
+					<span class = 	"icon-bar"></span>
+					<span class = "icon-bar"></span>
+					<span class = "icon-bar"></span>
+				</button>
+			</div>
+
+			<div class = "collapse navbar-collapse" id = "myNavbar">
+				<ul class = "nav navbar-nav">
+					<li><a href = "../index.html">Home</a></li>
+					<li class = "active"><a href = "#">Trailer</a></li>
+					<li><a href = "celebrity.html">Celebrity</a></li>
+					<li><a href = "latest_movies.html">Latest</a></li>
+					<li><a href = "evergreen_movies.html">Evergreen</a></li>
+				</ul>
+				<ul class = "nav navbar-nav navbar-right">
+					<li><a href = "signUp.html"><spna class = "glyphicon glyphicon-user"></spna>&nbsp SignUp</a></li>
+					<li><a href = "signIn.html"><span class = "glyphicon glyphicon-log-in"></span>  &nbspLogin</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- navigation part end -->
+	<!-- Carousel Start -->
+	<div id = "myCarousel" class = "carousel slide" data-ride = "carousel" data-interval = "2000">
+		<ol class = "carousel-indicators">
+			<li data-target = "#myCarousel" data-slide-to = "0" class = "active"></li>
+			<li data-target = "#myCarousel" data-slide-to = "1"></li>
+			<li data-target = "#myCarousel" data-slide-to = "2"></li>
+			<li data-target = "#myCarousel" data-slide-to = "3"></li>
+			<li data-target = "#myCarousel" data-slide-to = "4"></li>
+		</ol>
+		<div class = "carousel-inner">	
+			<div class = "item active">
+				<iframe src="https://www.youtube.com/embed/MyCuUr2_hmA" class = "" alt = "The wall" allowfullscreen controls = "" frameborder = ""></iframe>
+				<div class = "carousel-caption">
+					<h3>The Wall</h3>
+				</div>
+			</div>
+			<div class = "item">
+				<iframe src="https://www.youtube.com/embed/TcMBFSGVi1c" class = ""frameborder = "0"></iframe>
+				<div class = "carousel-caption">
+					<h3>Avengers : The End Game</h3>
+				</div>
+			</div>
+			<div class = "item">	
+				<iframe src="https://www.youtube.com/embed/1roy4o4tqQM" class = ""frameborder = ""></iframe>
+				<div class = "carousel-caption">
+					<h3>Detective Pikachu</h3>
+				</div>
+			</div>
+			<div class = "item">	
+				<iframe src="https://www.youtube.com/embed/g4Hbz2jLxvQ" class = ""frameborder = ""></iframe>
+				<div class = "carousel-caption">
+					<h3>Spiderman : Into the spider-verse</h3>
+				</div>
+			</div>
+			<div class = "item">	
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" class = ""frameborder = ""></iframe>
+					<div class = "carousel-caption">
+						<h3>Johnwick Chapter 3</h3>
+					</div>
+			</div>
+		</div>
+
+		<a class = "left carousel-control" href = "#myCarousel" data-slide = "prev">
+			<span class = "glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a class = "right carousel-control" href = "#myCarousel" data-slide = "next">
+			<span class = "glyphicon glyphicon-chevron-right"></span>
+		</a>
+	</div>
+	<!-- Carousel ends -->
+	<!--trailer start-->
+	<div class = "trailer_container">
+		<div class = "trailer_header">
+			<h1>Trailers</h1>
+		</div>
+		<ul class = "nav nav-pills my_nav">
+			<li class = "active" id = "most_popular_btn"><a data-toggle =  "pill"><h2>Most Popular</h2></a></li>
+			<li id = "most_recent_btn"><a data-toggle = "pill"><h2>Most Recent</h2></a></li>
+		</ul>
+
+		<div class = "tab-content">
+			<div class = "trailer_content fade in" id = "most_popular">
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/MyCuUr2_hmA" alt = "The wall" allowfullscreen controls = "" frameborder = ""></iframe>
+					<div class = "caption">
+						The Wall
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/TcMBFSGVi1c" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Avengers : The End Game
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/1roy4o4tqQM" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Detective Pikachu
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/q5v7Ch4bxzc" alt = "The wall" allowfullscreen controls = "" frameborder = ""></iframe>
+					<div class = "caption">
+						SpiderMan  : Into the spider-verse
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/g4Hbz2jLxvQ" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+			</div>
+				<!-- most_popular end -->
+				<!-- most_recent start -->
+			<div class = "trailer_content fade in" id = "most_recent">
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/MyCuUr2_hmA" alt = "The wall" allowfullscreen controls = "" frameborder = ""></iframe>
+					<div class = "caption">
+						Avengers : The End Game	
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/TcMBFSGVi1c" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						The Wall
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/1roy4o4tqQM" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Detective Pikachu
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/q5v7Ch4bxzc" alt = "The wall" allowfullscreen controls = "" frameborder = ""></iframe>
+					<div class = "caption">
+						SpiderMan  : Into the spider-verse
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/g4Hbz2jLxvQ" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+				<div class = "trailer">
+					<iframe src="https://www.youtube.com/embed/M7XM597XO94" frameborder = "0" allowfullscreen controls = "" ></iframe>
+					<div class = "caption">
+						Johnwick Chapter 3
+					</div>
+				</div>
+			</div>
+				<!-- most_recent_end -->
+		</div>
+
+	</div>
+</div>
+
+
+	<a id = "go_to_top" class = "btn btn-info" href = "#top_header"><span class = "glyphicon glyphicon-chevron-up"></span></a>
+
+	<script>
+		$(document).ready(function(){
+			$("#most_recent").hide();
+			$("#most_recent_btn").on("click", function(){
+				$("#most_popular").hide();
+				$("#most_recent").fadeIn();
+			});
+			$("#most_popular_btn").on("click", function(){
+				$("#most_recent").hide();
+				$("#most_popular").show();
+			});
+		});
+	</script>
+</body>
+</html>
+

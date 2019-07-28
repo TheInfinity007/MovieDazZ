@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SignUp</title>
+    <meta name="viewport" content = "width =  device-width" initial-scale = 1>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" >
+    <script src = "../library/jquery-3.3.1.min.js"></script>
+    <!--<script src ="js/bootstrap.js"></script>    This create hinderence in dropdown -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link  rel = "stylesheet" type = "text/css" href = "../css/signUp.css">
+    <style>
+     body
+    {
+      margin:0;
+      padding:0;
+      background-color:#03a9f4;
+      /*background:url(../res/img/infinity_war_wallpaper.jpg);*/
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-attachment:fixed;
+      }
+
+    .container
+    {
+      width:700px ;
+      background:rgba(255,255,255,0.5);
+      padding:30px;
+      margin-bottom:30px;
+      }
+      .heading
+      {
+        padding:10px;
+        background:linear-gradient(#1D4050,#A43931,#BE5869);
+        color:#ffff;
+      }
+      .heading h1
+      {
+        padding:0;
+      }
+      form
+      {
+        width:80%;
+        margin-left:10%;
+      }
+      .submit
+      {
+        color:white;
+        /*border:2px solid white;*/
+        background:blue;
+        letter-spacing: 1px;
+      }
+      .submit:hover
+      {
+        color:blue;
+        background:white;
+        font-weight:700;
+        border:2px solid #0000ff;
+      }
+  </style>
+  </head>
+  <body>
+    <a name = "top_header"></a>
+<div class = "container-fluid">
+  <div class = "top_header">
+    <h2>Movie DazZ</h2>
+    <h5>The Best movie review site</h5>
+  </div>
+
+
+  <!-- navigation start -->
+  <nav class = "navbar navbar-inverse" data-spy = "affix" data-offset-top = "20">
+    <div class = "container-fluid">
+      <div class = "navbar-header">
+        <ul class = "nav navbar-nav">
+          <li><a href = "../index.html" class = "navbar-brand"><img src = "../res/icon/logo.png"></a></li>
+        </ul>
+        <button type = "button" class = "navbar-toggle" data-toggle = "collapse" data-target = "#myNavbar">
+          <span class =   "icon-bar"></span>
+          <span class = "icon-bar"></span>
+          <span class = "icon-bar"></span>
+        </button>
+      </div>
+
+      <div class = "collapse navbar-collapse" id = "myNavbar">
+        <ul class = "nav navbar-nav">
+          <li><a href = "../index.html">Home</a></li>
+          <li><a href = "trailer.html">Trailer</a></li>
+          <li><a href = "celebrity.html">Celebrity</a></li>
+          <li><a href = "latest_movies.html">Latest</a></li>
+          <li><a href = "evergreen_movies.html">Evergreen</a></li>
+        </ul>
+        <ul class = "nav navbar-nav navbar-right">
+          <li class = "active"><a href = "#"><spna class = "glyphicon glyphicon-user"></spna>&nbsp SignUp</a></li>
+          <li><a href = "signIn.html"><span class = "glyphicon glyphicon-log-in"></span>  &nbspLogin</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- navigation part end -->
+    <div class = "container">
+      <div class = "jumbotron text-center heading">
+        <h1>Sign Up </h1>
+      </div>
+
+      <form action = "" class = "" autocomplete="off">
+        <div class = "form-group">
+          <label for = "fname">First Name</label>
+          <input type = "text" name = "fname" class = "fname form-control" >
+        </div>
+        <div class = "form-group">
+          <label for = "lname">Last Name</label>
+          <input type = "text" name = "lname" class = "lname form-control">
+        </div>
+        <div class = "form-group">
+          <label for = "email" >Email</label>
+          <input type = "email" name = "email" class = "email form-control">
+        </div>
+        <div class = "form-group">
+          <label for = "password" >Password</label>
+          <input type = "password" name = "pwd" class = "pwd form-control">
+        </div>
+        <div class = "form-group">
+          <label for = "password1">Confirm Password</label>
+          <input type = "password" name = "pwd1" class = "pwd1 form-control">
+        </div>
+        <div class = "form-group">
+          <label for = "mobile">Mobile</label>
+          <input type = "tel" id = "mobile" class = "form-control">
+        </div>
+        <br>
+        <div class = "form-group">
+          <button type = "submit" class = "btn btn-block submit">Submit</button>
+        </div>
+
+      </form>
+    </div>
+
+
+
+
+
+  </body>
+</html>
