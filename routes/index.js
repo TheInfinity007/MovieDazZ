@@ -1,8 +1,8 @@
 const express = require('express');
 
 const router = express.Router();
-const request = require('request');
 const passport = require('passport');
+const request = require('../lib/httpClient');
 const User = require('../models/user');
 const middleware = require('../middleware');
 const Movie = require('../models/movie');
@@ -20,7 +20,9 @@ let isRender = false;
 
 const checkMovies = (res) => {
     if (isRender === false) {
-        if (trendingMovies.length > 0 && theatreMovies.length > 0 && upcomingMovies.length > 0 && popularMovies.length > 0) {
+        const hasAnyMovies = trendingMovies.length > 0 || theatreMovies.length > 0 || upcomingMovies.length > 0 || popularMovies.length > 0;
+        const allMoviesLoaded = trendingMovies.length > 0 && theatreMovies.length > 0 && upcomingMovies.length > 0 && popularMovies.length > 0;
+        if (allMoviesLoaded || !hasAnyMovies) {
             console.log(new Date().getTime() - start);
             isRender = true;
             res.render('index', {
@@ -33,8 +35,8 @@ const checkMovies = (res) => {
 const grabTrendingMovies = (res) => {
     if (trendingMovies.length < 1) {
         const url = `${TMDB_BASE_URI}/3/trending/movie/day?api_key=${Config.movieApiKey}`;
-        request(url, (error, response, body) => {
-            if (!error && response.statusCode === 200) {
+        request(url, { timeout: 10000 }, (error, response, body) => {
+            if (!error && response && response.statusCode === 200) {
                 const data = JSON.parse(body);
                 data.results.forEach((result) => {
                     if (result.poster_path === null) return;
@@ -49,8 +51,10 @@ const grabTrendingMovies = (res) => {
                 console.log('Grab1');
                 checkMovies(res);
             } else {
-                console.log('Exit 1');
-                grabTrendingMovies(res);
+                console.log('Exit 1', error && error.code ? error.code : error);
+                if (!isRender) {
+                    checkMovies(res);
+                }
             }
         });
     }
@@ -59,8 +63,8 @@ const grabTrendingMovies = (res) => {
 const grabTheatreMovies = (res) => {
     if (theatreMovies.length < 1) {
         const url = `${TMDB_BASE_URI}/3/movie/now_playing?api_key=${Config.movieApiKey}`;
-        request(url, (error, response, body) => {
-            if (!error && response.statusCode === 200) {
+        request(url, { timeout: 10000 }, (error, response, body) => {
+            if (!error && response && response.statusCode === 200) {
                 const data = JSON.parse(body);
                 data.results.forEach((result) => {
                     if (result.poster_path === null) return;
@@ -75,8 +79,10 @@ const grabTheatreMovies = (res) => {
                 console.log('Grab2');
                 checkMovies(res);
             } else {
-                console.log('Exit 2');
-                grabTheatreMovies(res);
+                console.log('Exit 2', error && error.code ? error.code : error);
+                if (!isRender) {
+                    checkMovies(res);
+                }
             }
         });
     }
@@ -85,8 +91,8 @@ const grabTheatreMovies = (res) => {
 const grabUpcomingMovies = (res) => {
     if (upcomingMovies.length < 1) {
         const url = `${TMDB_BASE_URI}/3/movie/upcoming?api_key=${Config.movieApiKey}`;
-        request(url, (error, response, body) => {
-            if (!error && response.statusCode === 200) {
+        request(url, { timeout: 10000 }, (error, response, body) => {
+            if (!error && response && response.statusCode === 200) {
                 const data = JSON.parse(body);
                 data.results.forEach((result) => {
                     if (result.poster_path === null) return;
@@ -101,8 +107,10 @@ const grabUpcomingMovies = (res) => {
                 console.log('Grab3');
                 checkMovies(res);
             } else {
-                console.log('Exit 3');
-                grabUpcomingMovies(res);
+                console.log('Exit 3', error && error.code ? error.code : error);
+                if (!isRender) {
+                    checkMovies(res);
+                }
             }
         });
     }
@@ -111,8 +119,8 @@ const grabUpcomingMovies = (res) => {
 const grabPopularMovies = (res) => {
     if (popularMovies.length < 1) {
         const url = `${TMDB_BASE_URI}/3/movie/popular?api_key=${Config.movieApiKey}`;
-        request(url, (error, response, body) => {
-            if (!error && response.statusCode === 200) {
+        request(url, { timeout: 10000 }, (error, response, body) => {
+            if (!error && response && response.statusCode === 200) {
                 const data = JSON.parse(body);
                 data.results.forEach((result) => {
                     if (result.poster_path === null) return;
@@ -127,8 +135,10 @@ const grabPopularMovies = (res) => {
                 console.log('Grab4');
                 checkMovies(res);
             } else {
-                console.log('Exit 4');
-                grabUpcomingMovies(res);
+                console.log('Exit 4', error && error.code ? error.code : error);
+                if (!isRender) {
+                    checkMovies(res);
+                }
             }
         });
     }
@@ -142,8 +152,8 @@ router.get('/search/:type/:title/:pageNo/*', (req, res) => {
         url = `${OMDB_BASE_URI}/?s=${req.params.title}&page=${req.params.pageNo}&type=movie&apikey=${Config.searchApiKey}`;
     }
     console.log(url);
-    request(url, (error, response, body) => {
-        if (!error && response.statusCode === 200) {
+    request(url, { timeout: 10000 }, (error, response, body) => {
+        if (!error && response && response.statusCode === 200) {
             const data = JSON.parse(body);
             if (data.Response.toLowerCase() === 'true') {
                 res.render('result', {
@@ -209,7 +219,7 @@ router.get('/login/*', (req, res) => {
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login/',
-// eslint-disable-next-line no-unused-vars
+    // eslint-disable-next-line no-unused-vars
 }), (req, res) => {
     console.log('Loggin the user');
 });
@@ -249,8 +259,8 @@ const addToFavouriteMovie = (id, title, img, rel) => {
 
 const getImdb = (req, id, title, img, rel) => {
     const url = `${TMDB_BASE_URI}/3/movie/${id}/external_ids?api_key=${Config.movieApiKey}`;
-    request(url, (error, response, body) => {
-        if (!error && response.statusCode === 200) {
+    request(url, { timeout: 10000 }, (error, response, body) => {
+        if (!error && response && response.statusCode === 200) {
             const data = JSON.parse(body);
             const imdbId = data.imdb_id;
             addToFavouriteMovie(imdbId, title, img, rel);
@@ -272,8 +282,8 @@ const getImdb = (req, id, title, img, rel) => {
 const getTmdb = (req, id) => {
     const url = `${TMDB_BASE_URI}/3/find/${id}?api_key=${Config.movieApiKey}&external_source=imdb_id`;
     console.log(url);
-    request(url, (error, response, body) => {
-        if (!error && response.statusCode === 200) {
+    request(url, { timeout: 10000 }, (error, response, body) => {
+        if (!error && response && response.statusCode === 200) {
             const data = JSON.parse(body);
 
             if (data.movie_results.length > 0) {
@@ -372,9 +382,9 @@ router.delete('/favourite/:imdbId', middleware.isLoggedIn, (req, res) => {
             console.log(imdbid, tmdbid);
             let i = -1; let
                 t = -1;
-            user.favouriteMovieList.forEach((id, index) => {
-                if (id === tmdbid) { t = index; }
-                if (id === imdbid) { i = index; }
+            user.favouriteMovieList.forEach((movieId, index) => {
+                if (movieId === tmdbid) { t = index; }
+                if (movieId === imdbid) { i = index; }
             });
             if (i > t) {
                 if (i !== -1) user.favouriteMovieList.splice(i, 1);
@@ -392,8 +402,8 @@ router.delete('/favourite/:imdbId', middleware.isLoggedIn, (req, res) => {
 
 const getImdbWatchList = (req, id, title, img, rel) => {
     const url = `${TMDB_BASE_URI}/3/movie/${id}/external_ids?api_key=${Config.movieApiKey}`;
-    request(url, (error, response, body) => {
-        if (!error && response.statusCode === 200) {
+    request(url, { timeout: 10000 }, (error, response, body) => {
+        if (!error && response && response.statusCode === 200) {
             const data = JSON.parse(body);
             const imdbId = data.imdb_id;
             addToFavouriteMovie(imdbId, title, img, rel);
@@ -412,8 +422,8 @@ const getImdbWatchList = (req, id, title, img, rel) => {
 const getTmdbWatchList = (req, id) => {
     const url = `${TMDB_BASE_URI}/3/find/${id}?api_key=${Config.movieApiKey}&external_source=imdb_id`;
     console.log(url);
-    request(url, (error, response, body) => {
-        if (!error && response.statusCode === 200) {
+    request(url, { timeout: 10000 }, (error, response, body) => {
+        if (!error && response && response.statusCode === 200) {
             const data = JSON.parse(body);
 
             if (data.movie_results.length > 0) {
@@ -526,8 +536,8 @@ const grabRecommendationAndRender = (res, id, img, torrents, title) => {
     recommendations = [];
     const url = `${TMDB_BASE_URI}/3/movie/${id}/recommendations?api_key=${Config.movieApiKey}`;
     console.log(url);
-    request(url, (error, response, body) => {
-        if (!error && response.statusCode === 200) {
+    request(url, { timeout: 10000 }, (error, response, body) => {
+        if (!error && response && response.statusCode === 200) {
             const data = JSON.parse(body);
             if (data.results.length > 0) {
                 for (let i = 0; i < 10 && i < data.results.length; i++) {
@@ -565,11 +575,12 @@ router.get('/download/:imdbId/', async (req, res) => {
     }
 
     const url = `https://yts.mx/api/v2/list_movies.json?query_term=${req.params.imdbId}`;
-    request(url, (error, response, body) => {
-        if (!error && response.statusCode === 200) {
+    request(url, { timeout: 10000 }, (error, response, body) => {
+        if (!error && response && response.statusCode === 200) {
             let data = JSON.parse(body);
             if (data.data.movie_count !== 0) {
-                data = data.data.movies[0];
+                const [movieData] = data.data.movies;
+                data = movieData;
                 const img = data.small_cover_image;
                 const { title } = data;
 
@@ -590,7 +601,7 @@ router.get('/download/:imdbId/', async (req, res) => {
                 console.log('Download is not available.');
             }
         } else {
-            if (error)console.log('Error in Fetching the download-link = ', error);
+            if (error) console.log('Error in Fetching the download-link = ', error);
             if (response) { console.log('Status Code in Fetching the downloa link = ', response.statusCode); }
             res.render('download', {
                 img: 'https://source.unsplash.com/random/1600×1600/?movies', data: null, title: null, recommendations,
@@ -602,8 +613,8 @@ router.get('/download/:imdbId/', async (req, res) => {
 
 router.get('/watch/trailer/:imdbId/*', (req, res) => {
     let url = `https://yts.mx/api/v2/list_movies.json?query_term=${req.params.imdbId}`;
-    request(url, (error, response, body) => {
-        if (!error && response.statusCode === 200) {
+    request(url, { timeout: 10000 }, (error, response, body) => {
+        if (!error && response && response.statusCode === 200) {
             const data = JSON.parse(body);
             if (data.data.movie_count > 0) {
                 const { youTubeTrailerCode } = data.data.movies[0];

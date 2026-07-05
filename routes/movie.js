@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
-const request = require('request');
+const request = require('../lib/httpClient');
 const ExternalIds = require('../models/externalId');
 const Config = require('../lib/config');
 const { OMDB_BASE_URI, TMDB_BASE_URI } = require('../lib/constants');
@@ -16,8 +16,8 @@ const grabMovieData = (res, imdbId) => {
     }
     const url = `${OMDB_BASE_URI}/?i=${imdbId}&plot=full&apikey=${Config.searchApiKey}`;
     console.log(url);
-    request(url, (error, response, body) => {
-        if (!error && response.statusCode === 200) {
+    request(url, { timeout: 10000 }, (error, response, body) => {
+        if (!error && response && response.statusCode === 200) {
             const data = JSON.parse(body);
             if (data.Response.toLowerCase() === 'true') {
                 console.log(new Date().getTime() - start);
@@ -26,7 +26,7 @@ const grabMovieData = (res, imdbId) => {
             console.log('Data Not Found Exit 2');
             return res.redirect('back');
         }
-        if (error)console.log('Error = ', error);
+        if (error) console.log('Error = ', error);
         if (response) { console.log('Status Code = ', response.statusCode); }
         console.log('ERROR OCCURED IN FETCHING THE DATA');
         return res.redirect('back');
@@ -38,8 +38,8 @@ const getImdbId = (res, mId) => {
     let validId = false;
     let imdbId;
     console.log(url);
-    request(url, (error, response, body) => {
-        if (!error && response.statusCode === 200) {
+    request(url, { timeout: 10000 }, (error, response, body) => {
+        if (!error && response && response.statusCode === 200) {
             const data = JSON.parse(body);
             imdbId = data.imdb_id;
             validId = true;
@@ -52,7 +52,7 @@ const getImdbId = (res, mId) => {
                 console.log('This is a valid Id');
             }
         } else {
-            if (error)console.log('Error1 = ', error);
+            if (error) console.log('Error1 = ', error);
             if (response) { console.log('Status Code1 = ', response.statusCode); }
             console.log('Unable to get the imdb id from tmdb id');
             res.redirect('back');
@@ -62,8 +62,8 @@ const getImdbId = (res, mId) => {
 
 // FOR MOVIE CATEGORY
 const getMovies = (res, url, pageTitle, pageUrl, pageNo) => {
-    request(url, (error, response, body) => {
-        if (!error && response.statusCode === 200) {
+    request(url, { timeout: 10000 }, (error, response, body) => {
+        if (!error && response && response.statusCode === 200) {
             const data = JSON.parse(body);
             const movies = [];
             data.results.forEach((result) => {
@@ -85,7 +85,7 @@ const getMovies = (res, url, pageTitle, pageUrl, pageNo) => {
                 pages: data.total_pages,
             });
         } else {
-            if (error)console.log('Error = ', error);
+            if (error) console.log('Error = ', error);
             if (response) { console.log('Status Code = ', response.statusCode); }
             console.log('ERROR OCCURED IN FETCHING THE DATA');
             res.redirect('back');
@@ -146,8 +146,8 @@ const grabRecommendation = (id) => {
     recommendations = [];
     const url = `${TMDB_BASE_URI}/3/movie/${id}/recommendations?api_key=${Config.movieApiKey}`;
     console.log(url);
-    request(url, (error, response, body) => {
-        if (!error && response.statusCode === 200) {
+    request(url, { timeout: 10000 }, (error, response, body) => {
+        if (!error && response && response.statusCode === 200) {
             const data = JSON.parse(body);
             for (let i = 0; i < 10 && i < data.results.length; i++) {
                 recommendations.push(data.results[i]);
