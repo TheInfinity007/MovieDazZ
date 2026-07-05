@@ -17,9 +17,7 @@ const movieRoute = require('./routes/movie');
 const celebrityRoute = require('./routes/celebrity');
 
 const url = process.env.DATABASEURL || 'mongodb://localhost/moviedazz';
-mongoose.set('useUnifiedTopology', true);
-mongoose.set('useCreateIndex', true);
-mongoose.connect(url, { useNewUrlParser: true, useFindAndModify: false });
+mongoose.connect(url);
 const db = mongoose.connection;
 db.on('error', (error) => console.log(error));
 db.once('open', () => console.log('Connected to Mongoose'));
