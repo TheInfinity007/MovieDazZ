@@ -44,8 +44,10 @@ const getImdbId = (res, mId) => {
             imdbId = data.imdb_id;
             validId = true;
             console.log(imdbId);
-            ExternalIds.create({ tmdbId: mId, imdbId }, (err, obj) => {
+            ExternalIds.create({ tmdbId: mId, imdbId }).then((obj) => {
                 console.log(`New = ${obj}`);
+            }).catch((err) => {
+                console.log(err);
             });
             grabMovieData(res, imdbId);
             if (validId) {
