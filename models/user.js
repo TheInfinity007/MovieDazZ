@@ -1,14 +1,14 @@
-var mongoose = require('mongoose');
-var passportLocalMongoose = require("passport-local-mongoose");
+const mongoose = require('mongoose');
+const passportLocalMongoose = require('passport-local-mongoose').default;
 
-var userSchema = new mongoose.Schema({
-	username:{type: String, unique: true, required: true},
-	password: String,
-	favouriteMovieList: [String],
-	watchList: [String]
-})
+const userSchema = new mongoose.Schema({
+    username: { type: String, unique: true, required: true },
+    password: String,
+    favouriteMovieList: [String],
+    watchList: [String],
+});
 
 userSchema.plugin(passportLocalMongoose);
 
-var User = mongoose.model("User", userSchema);
+const User = mongoose.model('User', userSchema);
 module.exports = User;

@@ -190,24 +190,28 @@ router.get('/register/*', (req, res) => {
 });
 
 // Handle Signup Logic
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
     console.log(req.body);
     const { password } = req.body;
     const newUser = new User({
         username: req.body.username,
     });
-    User.register(newUser, password, (err, user) => {
-        if (err) {
-            console.log(err);
-            res.redirect('/');
-        } else {
-            console.log(user);
-            passport.authenticate('local')(req, res, () => {
-                console.log('User has been Created');
-                res.redirect('/');
-            });
-        }
-    });
+
+    try {
+        const user = await User.register(newUser, password);
+        console.log(user);
+        return req.login(user, (loginErr) => {
+            if (loginErr) {
+                console.log(loginErr);
+                return res.redirect('/register/');
+            }
+            console.log('User has been Created');
+            return res.redirect('/');
+        });
+    } catch (err) {
+        console.log(err);
+        return res.redirect('/register/');
+    }
 });
 
 // Login Route
